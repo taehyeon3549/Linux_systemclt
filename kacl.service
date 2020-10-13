@@ -1,0 +1,17 @@
+[Unit]
+Description=kacl
+After=docker.service
+
+[Service]
+Type=forking
+#PIDFile=/winitech/kacl/master.pid
+User=kacs
+
+ExecStart=/winitech/kacl/boot.sh start
+ExecStop=/winitech/kacl/boot.sh stop
+
+#SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+
